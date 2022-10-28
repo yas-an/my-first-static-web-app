@@ -5,11 +5,12 @@
 
   "routes": [
     {
-      "route": "/",
+      "route": "/*",
       "allowedRoles": ["authenticated"]
     },
     {
       "route": "/.auth/login/done",
+      "allowedRoles": ["authenticated"],
       "rewrite": "/index.html"
     }
   ],
