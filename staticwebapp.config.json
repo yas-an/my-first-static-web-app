@@ -1,5 +1,49 @@
 {
-    "navigationFallback": {
-        "rewrite": "/index.html"
+  "navigationFallback": {
+    "rewrite": "/index.html"
+  },
+
+  "routes": [
+    {
+      "route": "/",
+      "allowedRoles": ["authenticated"]
+    },
+    {
+      "route": "/.auth/login/done",
+      "rewrite": "/index.html"
     }
+  ],
+  "auth": {
+    "identityProviders": {
+      "customOpenIdConnectProviders": {
+        "aadb2c": {
+          "registration": {
+            "clientIdSettingName": "AADB2C_PROVIDER_CLIENT_ID",
+            "clientCredential": {
+              "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
+            },
+            "openIdConnectConfiguration": {
+              "wellKnownOpenIdConfiguration": "https://olscauthdev.b2clogin.com/olscauthdev.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0/.well-known/openid-configuration"
+            }
+          },
+          "login": {
+            "nameClaimType": "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name",
+            "scopes": ["openid", "profile"],
+            "loginParameterNames": []
+          }
+        }
+      }
+    }
+  },
+  "responseOverrides": {
+    "401": {
+      "redirect": "https://olscauthdev.b2clogin.com/olscauthdev.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SIGNUP_SIGNIN&client_id=67ad1a5a-9fa5-4ba5-9cfd-b3849a998f90&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fblack-forest-0158eec00.2.azurestaticapps.net%2F.auth%2Flogin%2Faadb2c%2Fcallback&scope=openid&response_type=code&prompt=login",
+      "statusCode": 302
+    }
+  },
+  "globalHeaders": {
+    "content-security-policy": "default-src https: 'unsafe-eval' 'unsafe-inline'; object-src 'none'",
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
 }
