@@ -1,16 +1,15 @@
 {
-  "navigationFallback": {
-    "rewrite": "/index.html"
-  },
-
   "routes": [
     {
       "route": "/*",
       "allowedRoles": ["authenticated"]
     },
     {
+        "route": "/index.html",
+        "allowedRoles": ["authenticated"]
+      },
+      {
       "route": "/.auth/login/done",
-      "allowedRoles": ["authenticated"],
       "rewrite": "/index.html"
     }
   ],
