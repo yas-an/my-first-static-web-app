@@ -27,7 +27,7 @@
               "clientSecretSettingName": "AADB2C_PROVIDER_CLIENT_SECRET"
             },
             "openIdConnectConfiguration": {
-              "wellKnownOpenIdConfiguration": "https://olscauthdev.b2clogin.com/olscauthdev.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0/.well-known/openid-configuration"
+              "wellKnownOpenIdConfiguration": "https://olympusds.b2clogin.com/olympusds.onmicrosoft.com/B2C_1A_SIGNUP_SIGNIN/v2.0/.well-known/openid-configuration"
             }
           },
           "login": {
@@ -41,7 +41,7 @@
   },
   "responseOverrides": {
     "401": {
-      "redirect": "https://olscauthdev.b2clogin.com/olscauthdev.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SIGNUP_SIGNIN&client_id=67ad1a5a-9fa5-4ba5-9cfd-b3849a998f90&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fblack-forest-0158eec00.2.azurestaticapps.net%2F.auth%2Flogin%2Faadb2c%2Fcallback&scope=openid&response_type=code&prompt=login",
+      "redirect": "https://olympusds.b2clogin.com/olympusds.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1A_SIGNUP_SIGNIN&client_id=bdef9be4-f366-426a-8626-c394400cf10d&nonce=defaultNonce&redirect_uri=https%3A%2F%2Fblack-forest-0158eec00.2.azurestaticapps.net%2F.auth%2Flogin%2Faadb2c%2Fcallback&scope=openid&response_type=code&prompt=login",
       "statusCode": 302
     }
   },
